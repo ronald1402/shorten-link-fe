@@ -11,8 +11,11 @@ const LinkResult = ({ inputValue }) => {
     const fetchData = async () => {
         try{
             setLoading(true)
-            const res = await axios(`https://api.shrtco.de/v2/shorten?url=${inputValue}`);
-            setShortenLink(res.data.result.full_short_link);
+            const payload = {
+                longurl : inputValue
+            };
+            const res = await axios.post(`http://127.0.0.1:8000/shorten/`, payload);
+            setShortenLink(res.data.shorturl);
         } catch(err) {
             setError(err);
         } finally {
