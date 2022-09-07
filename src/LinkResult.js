@@ -25,7 +25,6 @@ const LinkResult = ({ inputValue }) => {
 
     useEffect(() => {
         if(inputValue.length) {
-            console.log(inputValue.length)
             fetchData();
         }
         }, [inputValue]);
